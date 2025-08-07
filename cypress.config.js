@@ -23,8 +23,21 @@ const environments = {
 
 module.exports = defineConfig({
   failOnStatusCode: false,
+  reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      reportDir: 'cypress/reports',
+      overwrite: false,
+      html: true,
+      json: true,
+      charts: true, 
+      timestamp: 'mmddyyyy_HHMMss',
+      reportFilename: 'index-report.html',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+    },
   e2e: {
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
       require('@cypress/grep/src/plugin')(config);
       const environment = config.env.environment || "homo";
@@ -35,19 +48,6 @@ module.exports = defineConfig({
     env: {
       grepFilterSpecs: true,
       grepOmitFiltered: true,
-    },
-    // Configuración para Mochawesome reporter
-    reporter: 'mochawesome',
-    reporterOptions: {
-      reportDir: 'cypress/reports',
-      overwrite: false,
-      html: true,
-      json: false,
-      charts: true, 
-      timestamp: 'mmddyyyy_HHMMss',
-      reportFilename: 'index-report.html',
-      embeddedScreenshots: true,
-      inlineAssets: true,
     },
     // Configuración de video y screenshots para el reporte
     video: false,
