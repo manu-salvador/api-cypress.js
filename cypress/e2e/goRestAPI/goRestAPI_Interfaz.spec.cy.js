@@ -2,7 +2,7 @@ describe('GoRest API - Pruebas de Interfaz', { tags: ['@gorest', '@interfaz'] },
   
   // Variables globales para el contexto de las pruebas
   let baseUrl = 'https://gorest.co.in/public/v2';
-  let authToken = 'Bearer 1342194d39a0f104bc26c2638f6ef57d5857daa8d6ae2a960bb77c2b812e80a3'; // Reemplazar con tu token real
+  let authToken = 'Bearer 1342194d39a0f104bc26c2638f6ef57d5857daa8d6ae2a960bb77c2b812e80a3';
   let userId;
 
     it('Happy path - Crear un nuevo usuario con datos validos', { tags: ['@smoke'] }, () => {
@@ -22,7 +22,7 @@ describe('GoRest API - Pruebas de Interfaz', { tags: ['@gorest', '@interfaz'] },
         },
         body: userData
       }).then((response) => {
-        cy.log(response);
+        cy.log(JSON.stringify(response));
         expect(response.status).to.eq(201);
         expect(response.body).to.have.property('id');
         expect(response.body.name).to.eq(userData.name);
@@ -59,7 +59,7 @@ describe('GoRest API - Pruebas de Interfaz', { tags: ['@gorest', '@interfaz'] },
                 body: body,
                 failOnStatusCode: false
             }).then((response) => {
-                cy.log(response);
+                cy.log(JSON.stringify(response));
                 expect(response.status).to.eq(422);
             });
         });
@@ -90,7 +90,7 @@ describe('GoRest API - Pruebas de Interfaz', { tags: ['@gorest', '@interfaz'] },
                 body: body,
                 failOnStatusCode: false
             }).then((response) => {
-                cy.log(response);
+                cy.log(JSON.stringify(response));
                 expect(response.status).to.eq(422);
             });
         });
