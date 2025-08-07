@@ -29,5 +29,7 @@ npx cypress run --spec "cypress/e2e/goRestAPI/goRestAPI_Interfaz.spec.cy.js" - s
 Extensiones de VSCode:
 Live Server - para levantar el reporte html en un browser
 
-
+Tecnologías:
+Git v2.50.0
+Cypress v11.4.2
 
