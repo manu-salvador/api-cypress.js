@@ -8,7 +8,14 @@
     "cypress:run": "cypress run",
     "cypress:run:headed": "cypress run --headed",
     "test": "cypress run",
-    "test:api": "cypress run --spec 'cypress/e2e/api/**/*'"
+    "test:api": "cypress run --spec 'cypress/e2e/api/**/*'",
+    "test:smoke": "cypress run --env grep=@smoke",
+    "test:sad-path": "cypress run --env grep=@sad-path",
+    "test:happy-path": "cypress run --env grep=@happy-path",
+    "test:api-gorest": "cypress run --env grep=@gorest",
+    "test:create": "cypress run --env grep=@create",
+    "test:user": "cypress run --env grep=@user",
+    "test:interfaz": "cypress run --env grep=@interfaz"
   },
   "repository": {
     "type": "git",
