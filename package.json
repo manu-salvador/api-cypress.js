@@ -15,7 +15,8 @@
     "test:api-gorest": "cypress run --env grep=@gorest",
     "test:create": "cypress run --env grep=@create",
     "test:user": "cypress run --env grep=@user",
-    "test:interfaz": "cypress run --env grep=@interfaz"
+    "test:interfaz": "cypress run --env grep=@interfaz",
+    "test:parametros": "cypress run --env grep=@parametros"
   },
   "repository": {
     "type": "git",
