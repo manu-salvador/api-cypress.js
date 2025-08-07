@@ -1,0 +1,29 @@
+{
+  "name": "api-cypress",
+  "version": "1.0.0",
+  "description": "Proyecto API con Cypress y Javascript",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:headed": "cypress run --headed",
+    "test": "cypress run",
+    "test:api": "cypress run --spec 'cypress/e2e/api/**/*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu-salvador/api-cypress.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/manu-salvador/api-cypress.js/issues"
+  },
+  "homepage": "https://github.com/manu-salvador/api-cypress.js#readme",
+  "devDependencies": {
+    "@cypress/grep": "^4.1.0",
+    "cypress": "^14.5.3"
+  }
+}
