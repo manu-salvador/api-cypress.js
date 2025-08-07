@@ -1,8 +1,10 @@
 describe('GoRest API - Pruebas Funcionales', { tags: ['@gorest', '@funcional'] }, () => {
   
   // Variables globales para el contexto de las pruebas
-  let baseUrl = 'https://gorest.co.in/public/v2';
-  let authToken = 'Bearer 1342194d39a0f104bc26c2638f6ef57d5857daa8d6ae2a960bb77c2b812e80a3';
+  const environmentConfig = Cypress.env('environmentConfig');
+  const baseUrl = environmentConfig?.baseUrl;
+  const headers = environmentConfig?.headers;
+  let userId;
 
     it('Crear usuario con gender female', () => {
       const userData = {
@@ -15,10 +17,7 @@ describe('GoRest API - Pruebas Funcionales', { tags: ['@gorest', '@funcional'] }
       cy.request({
         method: 'POST',
         url: `${baseUrl}/users`,
-        headers: {
-          'Authorization': authToken,
-          'Content-Type': 'application/json'
-        },
+        headers: headers,
         body: userData
       }).then((response) => {
         cy.log(response);
@@ -44,10 +43,7 @@ describe('GoRest API - Pruebas Funcionales', { tags: ['@gorest', '@funcional'] }
       cy.request({
         method: 'POST',
         url: `${baseUrl}/users`,
-        headers: {
-          'Authorization': authToken,
-          'Content-Type': 'application/json'
-        },
+        headers: headers,
         body: userData
       }).then((response) => {
         cy.log(JSON.stringify(response));
