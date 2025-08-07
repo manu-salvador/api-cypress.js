@@ -15,3 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+// Registrar cypress-grep para el uso de tags
+import '@cypress/grep'
