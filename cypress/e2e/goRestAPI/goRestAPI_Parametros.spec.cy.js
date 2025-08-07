@@ -1,8 +1,9 @@
 describe('GoRest API - Pruebas de Parametros', { tags: ['@gorest', '@parametros'] }, () => {
   
   // Variables globales para el contexto de las pruebas
-  let baseUrl = 'https://gorest.co.in/public/v2';
-  let authToken = 'Bearer 1342194d39a0f104bc26c2638f6ef57d5857daa8d6ae2a960bb77c2b812e80a3';
+  const environmentConfig = Cypress.env('environmentConfig');
+  const baseUrl = environmentConfig?.baseUrl;
+  const headers = environmentConfig?.headers;
 
     const valoresInvalidos = [
         { descripcion: 'numero', valor: 123 },
@@ -33,10 +34,7 @@ describe('GoRest API - Pruebas de Parametros', { tags: ['@gorest', '@parametros'
                 cy.request({
                     method: 'POST',
                     url: `${baseUrl}/users`,
-                    headers: {
-                        'Authorization': authToken,
-                        'Content-Type': 'application/json'
-                    },
+                    headers: headers,
                     body: body,
                     failOnStatusCode: false
                 }).then((response) => {
