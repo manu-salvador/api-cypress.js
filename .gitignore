@@ -8,6 +8,8 @@ cypress/downloads/
 # Node modules
 node_modules/
 
+credenciales.json
+
 # Logs
 *.log
 npm-debug.log*
